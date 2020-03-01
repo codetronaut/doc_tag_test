@@ -6,30 +6,6 @@ import os, sys, inspect
 cmd_pdfminer = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],"deps/pdfminer/pdf_mining_dep/")))
 
 
-#if cmd_folder not in sys.path:
-#    sys.path.insert(0, cmd_folder)
-
- # use this if you want to include modules from a subfolder
-
- #if cmd_subfolder not in sys.path:
-#     sys.path.insert(0, cmd_subfolder)
-
- # Info:
- # cmd_folder = os.path.dirname(os.path.abspath(__file__)) # DO NOT USE __file__ !!!
- # __file__ fails if script is called in different ways on Windows
- # __file__ fails if someone does os.chdir() before
- # sys.argv[0] also fails because it doesn't not always contains the path
-#from subfolder.module import class
-
-
-#pdfdocument = imp.load_source('pdfdocument.py', cmd_pdfminer)
-#pdfdocument.PDFDocument()
-#from pdfminer.pdfdocument import PDFDocument
-
-
-
-
-# the mock-0.3.1 dir contains testcase.py, testutils.py & mock.py
 sys.path.append(cmd_pdfminer)
 
 from pdfdocument import PDFDocument
@@ -44,14 +20,6 @@ from image import ImageWriter
 
 # main
 def main(argv):
-    import getopt
-    def usage():
-        #print ('usage: %s [-d] [-p pagenos] [-m maxpages] [-P password] [-o output]'
-        #       ' [-C] [-n] [-A] [-V] [-M char_margin] [-L line_margin] [-W word_margin]'
-        #       ' [-F boxes_flow] [-Y layout_mode] [-O output_dir] [-R rotation]'
-        #       ' [-t text|html|xml|tag] [-c codec] [-s scale]'
-        #       ' file ...' % argv[0])
-        return 100
     try:
         (opts, args) = getopt.getopt(argv[1:], 'dp:m:P:o:CnAVM:L:W:F:Y:O:R:t:c:s:')
     except getopt.GetoptError:
@@ -74,28 +42,6 @@ def main(argv):
     scale = 1
     caching = True
     showpageno = True
-    laparams = LAParams()
-    for (k, v) in opts:
-        if k == '-d': debug += 1
-        elif k == '-p': pagenos.update( int(x)-1 for x in v.split(',') )
-        elif k == '-m': maxpages = int(v)
-        elif k == '-P': password = v
-        elif k == '-o': outfile = v
-        elif k == '-C': caching = False
-        elif k == '-n': laparams = None
-        elif k == '-A': laparams.all_texts = True
-        elif k == '-V': laparams.detect_vertical = True
-        elif k == '-M': laparams.char_margin = float(v)
-        elif k == '-L': laparams.line_margin = float(v)
-        elif k == '-W': laparams.word_margin = float(v)
-        elif k == '-F': laparams.boxes_flow = float(v)
-        elif k == '-Y': layoutmode = v
-        elif k == '-O': imagewriter = ImageWriter(v)
-        elif k == '-R': rotation = int(v)
-        elif k == '-t': outtype = v
-        elif k == '-c': codec = v
-        elif k == '-s': scale = float(v)
-    #
     PDFDocument.debug = debug
     PDFParser.debug = debug
     CMapDB.debug = debug

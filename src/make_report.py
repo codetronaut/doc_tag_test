@@ -10,12 +10,7 @@ import markdown 		# Convert markdown to html
 import codecs			# Markdown require UTF-8 encoding of the .md file
 import time				# Print the date on the report
 import re				# Regular expressions
-#from sets import *	# We'll need the 'Set' object
 
-# try:
-#     set
-# except NameError:
-#     from sets import Set as set
 
 txt_report = open("./output.txt", 'r')							# .txt version of the report from convert.py
 report = open("./report.md", 'w')								# .md version of the report to be written

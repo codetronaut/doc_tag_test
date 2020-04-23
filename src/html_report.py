@@ -80,7 +80,6 @@ markdown.markdownFromFile("./report.md", "report.html")
 mdreport.close()
 
 # doctor the html to make it prettier
-
 Top = ("<head>"+
 "<meta charset=\"utf-8\"/>" +
 "<title>" +
@@ -94,7 +93,7 @@ Top = ("<head>"+
 "<body>")
 
 Bottom = "</body>"
-crappy_report = open("report.html", 'r')
+crappy_report = open("taggedReport.html", 'r')
 better_report = open("Doc_Tag_report.html", 'w')
 crappy_string = crappy_report.read()
 better_report.write(Top+crappy_string+Bottom)

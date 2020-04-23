@@ -1,6 +1,6 @@
 #File and Folder placement:::
-# BASE FOLDER PWD MUST contain files "commandF.sh", "convert.py",
-#"README.md", "pdf2txt.py", "make_report.py"
+# BASE FOLDER PWD MUST contain files "commandF.sh", "html_report.py",
+#"README.md", "PDF-to-txt.py", "make_report.py"
 # All PDFs to be searched are in a folder of PWD called "PDFs"
 
 counterPDF=1

@@ -1,7 +1,7 @@
 """
 	Make_report.py takes the plain txt search report and converts it into a readable html file. The code breaks into two parts:
 	(1) Modify the source code to markdown to make headings and such
-	(2) Convert the markdown to
+	(2) Convert the markdown to HTML
 """
 import os, sys, inspect
 cmd_markdown = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],"deps/markdown/")))
